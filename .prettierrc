@@ -1,0 +1,6 @@
+{
+  "printWidth": 130,
+  "parser": "flow",
+  "jsxBracketSameLine":true,
+  "tabWidth": 4
+}
