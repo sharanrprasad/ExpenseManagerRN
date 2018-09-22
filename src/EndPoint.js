@@ -1,5 +1,5 @@
 // @flow
-const BaseUrl: string = "http://localhost:5001/api";
+const BaseUrl: string = "http://54.213.193.163/api";
 const LoginUrl = BaseUrl + "/login";
 const SignUpUrl = BaseUrl + "/signup";
 const AddExpenseUrl = BaseUrl + "/expense/add/";

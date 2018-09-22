@@ -5,6 +5,7 @@ import appNavigator from "../core/appNavigator";
 import userActions from "./userActions";
 import { setUserDataToken } from "../utils/asyncStorageRequests";
 import categoryActions from "./categoryActions";
+import axios from 'axios';
 
 export type LoginActionTypes =
     | { type: "SET_ERROR_STATE", payload: string }
@@ -19,6 +20,7 @@ export function loginUserAction(username: string, password: string) {
             .then(data => {
                 console.log("HEre", data);
                 dispatch(userActions.addUserAction(data.user, data.token));
+                axios.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
                 return setUserDataToken(data.user, data.token);
             })
             .then(() => {

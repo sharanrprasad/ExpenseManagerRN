@@ -4,6 +4,7 @@ import appNavigator from "../core/appNavigator";
 import ToastPresenter from "../core/ToastPresenter";
 import {AsyncStorage} from 'react-native';
 import categoryActions from './categoryActions';
+import axios from "axios";
 
 
 export type UserActionsType =
@@ -40,6 +41,7 @@ function checkIfUserLoggedIn(){
         appNavigator.navigate("AuthStack");
       } else {
         dispatch(addUserAction(JSON.parse(userData),JSON.parse(token)));
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + JSON.parse(token);
         dispatch(categoryActions.fetchCategoriesAndNavigate());
       }
     })
